@@ -8,13 +8,13 @@ export default class WelcomeScreen extends Component {
   constructor(){
     super()
     this.state={
-      emailId : '',
+      username : '',
       password: ''
     }
   }
 
-  userLogin = (emailId, password)=>{
-    firebase.auth().signInWithEmailAndPassword(emailId, password)
+  userLogin = (username, password)=>{
+    firebase.auth().signInWithEmailAndPassword(username, password)
     .then(()=>{
       return Alert.alert("Successfully Login")
     })
@@ -25,8 +25,8 @@ export default class WelcomeScreen extends Component {
     })
   }
 
-  userSignUp = (emailId, password) =>{
-    firebase.auth().createUserWithEmailAndPassword(emailId, password)
+  userSignUp = (username, password) =>{
+    firebase.auth().createUserWithEmailAndPassword(username, password)
     .then((response)=>{
       return Alert.alert("User Added Successfully")
     })
@@ -55,7 +55,7 @@ export default class WelcomeScreen extends Component {
             keyboardType ='email-address'
             onChangeText={(text)=>{
               this.setState({
-                emailId: text
+                username: text
               })
             }}
             />
@@ -75,13 +75,13 @@ export default class WelcomeScreen extends Component {
           <View style={{alignItems:'center'}}>
             <TouchableOpacity
               style={[styles.button,{marginBottom:10}]}
-              onPress = {()=>{this.userLogin(this.state.emailId, this.state.password)}}
+              onPress = {()=>{this.userLogin(this.state.username, this.state.password)}}
               >
               <Text style={{color:'#ff5722', fontSize:18, fontWeight:'bold'}}>LOGIN</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button}
-              onPress={()=>{this.userSignUp(this.state.emailId, this.state.password)}}
+              onPress={()=>{this.userSignUp(this.state.username, this.state.password)}}
               >
               <Text style={{color:'#ff5722', fontSize:18, fontWeight:'bold'}}>SIGN UP</Text>
             </TouchableOpacity>
