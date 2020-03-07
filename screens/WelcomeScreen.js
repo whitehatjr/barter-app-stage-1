@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, Image, TouchableOpacity,TextInput, Alert } from 'react-native';
-import BarterAnimation from './BarterAnimationScreen.js';
+import BarterAnimation from '../components/BarterAnimationScreen.js';
 import db from '../config';
 import firebase from 'firebase';
 
